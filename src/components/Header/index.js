@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import Loading from "../Loading";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
@@ -14,9 +15,11 @@ class Header extends Component {
     this.setState({ isMenuOpen: !isMenuOpen });
   }
   render() {
-    return (
+    const showLogo = this.props.showLogo;
+        return (
       <div className="container align-items-center">
         <nav role="navigation">
+          {showLogo ? <img src="assets/logo.png" className="logo-home" alt={Loading} />:''}
           <div id="menuToggle">
             <input type="checkbox" />
             <span></span>

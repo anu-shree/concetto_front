@@ -33,6 +33,10 @@ color: white;
   cursor: pointer;
 }
 
+.logo-home{
+  height: 120px;
+  width:  160px;
+}
 
 body
 {
