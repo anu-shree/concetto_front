@@ -37,7 +37,11 @@ const mapDispatchToProps = dispatch => ({
 class Main extends Component {
   componentDidMount() {
     this.props.fetchEvents();
-    if (this.props.auth.isAuthenticated && this.props.auth.userinfo.admin) {
+    if (
+      this.props.auth.isAuthenticated &&
+      this.props.auth.userinfo &&
+      this.props.auth.userinfo.admin
+    ) {
       this.props.fetchUsers();
     }
   }
