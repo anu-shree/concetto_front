@@ -35,7 +35,7 @@ class Home extends Component {
   handleScroll = event => {
     let scrollTop = window.pageYOffset;
     if (scrollTop > window.innerHeight / 10) {
-      if (this.state.offset != 55) {
+      if (this.state.offset !== 55) {
         this.setState({
           offset: 55
         });
@@ -57,7 +57,7 @@ class Home extends Component {
           {showLogo ? (
             ""
           ) : (
-            <img src="assets/logo.jpeg" className="logo-home" alt={Loading} />
+            <img src="assets/logo.png" className="logo-home" alt={Loading} />
           )}
         </div>
         <br />
