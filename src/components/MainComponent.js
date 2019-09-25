@@ -38,7 +38,9 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showLogo: false
+      showLogo: false,
+      preloader: true,
+      delayed: false
     };
   }
   componentDidMount() {
@@ -51,6 +53,10 @@ class Main extends Component {
       this.props.fetchUsers();
     }
     window.addEventListener("scroll", this.handleScroll);
+    this.setState({ preloader: false });
+    setTimeout(() => {
+      this.setState({ delayed: true });
+    }, 4000);
   }
 
   componentWillUnmount = () => {
@@ -75,6 +81,11 @@ class Main extends Component {
   };
 
   render() {
+    const { preloader } = this.props;
+    const { delayed } = this.state;
+    // if (preloader && !delayed) {
+    //   return <div>Loading .........</div>;
+    // }
     const PrivateRouteCommon = ({ component: Component, ...rest }) => (
       <Route
         {...rest}

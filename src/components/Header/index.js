@@ -23,7 +23,7 @@ class Header extends Component {
             <span class="helper"></span>
             {showLogo ? (
               <img
-                src="assets/logo.png"
+                src="assets/logo.jpeg"
                 className="logo-header"
                 alt={Loading}
               />
