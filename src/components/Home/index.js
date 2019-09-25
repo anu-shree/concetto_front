@@ -1,16 +1,29 @@
 import React, { Component } from "react";
 import Loading from "../Loading";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 
+const styles = (theme) => ({
+  logo:{
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  moon:{
+    display: 'flex',
+    zIndex: 200,
+    height: '400px',
+    bottom: 0,
+    border: '6px solid #ffffff',
+  },
+});
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const showLogo = this.props.showLogo;
+    const { showLogo,classes } = this.props;
     return (
-      <div className="container mt-4 text-center">
-        <div className="full-height  align-self-center">
+      <div>
+        <div className={classes.logo}>
           {showLogo ? (
             ""
           ) : (
@@ -29,9 +42,28 @@ class Home extends Component {
         <br />
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     );
   }
 }
 
-export default Home;
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(Home);

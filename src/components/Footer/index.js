@@ -15,19 +15,19 @@ const styles = theme => ({
     alignItems: "center"
   },
   a: {
-    height: "80px",
-    width: "80px",
+    height: "40px",
+    width: "40px",
     backgroundColor: "#f5f6fa",
     margin: '20px',
     marginBottom: '10px',
-    borderRadius: "40px",
+    borderRadius: "20px",
     textAlign: "center",
-    boxShadow: "1px 4px 2px 2px #dcdde1",
-    fontSize: "50px",
-    lineHeight: "90px",
+    boxShadow: "1px 1px 1px 1px #dcdde1",
+    fontSize: "30px",
+    lineHeight: "45px",
     transition: "all 0.3s linear",
     "&:hover": {
-      fontSize: "70px"
+      fontSize: "36px"
     },
     [theme.breakpoints.down('sm')]:{
       margin: '10px',
