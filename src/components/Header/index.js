@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import Loading from "../Loading";
 import { NavLink } from "react-router-dom";
 
@@ -15,11 +15,22 @@ class Header extends Component {
     this.setState({ isMenuOpen: !isMenuOpen });
   }
   render() {
-    const showLogo = this.props.showLogo;
-        return (
-      <div className="container align-items-center">
-        <nav role="navigation">
-          {showLogo ? <img src="assets/logo.png" className="logo-home" alt={Loading} />:''}
+    const { showLogo } = this.props;
+    return (
+      <div className="header fixed-top">
+        <nav className="navbar navbar-expand-md navbar-dark">
+          <a className="navbar-brand" href="home">
+            <span class="helper"></span>
+            {showLogo ? (
+              <img
+                src="assets/logo.png"
+                className="logo-header"
+                alt={Loading}
+              />
+            ) : (
+              ""
+            )}
+          </a>
           <div id="menuToggle">
             <input type="checkbox" />
             <span></span>
@@ -54,6 +65,7 @@ class Header extends Component {
             </ul>
           </div>
         </nav>
+        <nav role="navigation"></nav>
       </div>
     );
   }

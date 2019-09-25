@@ -6,13 +6,17 @@ class Home extends Component {
     super(props);
   }
 
-
-
   render() {
     const showLogo = this.props.showLogo;
     return (
-      <div className="container mt-4 home text-center align-self-center">
-        {showLogo?'':<img src="assets/logo.png" className="logo-home" alt={Loading}/>}
+      <div className="container mt-4 text-center">
+        <div className="full-height  align-self-center">
+          {showLogo ? (
+            ""
+          ) : (
+            <img src="assets/logo.png" className="logo-home" alt={Loading} />
+          )}
+        </div>
         <br />
         <br />
         <br />
@@ -25,38 +29,6 @@ class Home extends Component {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br/>
-        <br />
-        <br />
-        <br/>
-        <br />
-        <br />
-        <br />
-        <br/>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br/>
-        <br/>
       </div>
     );
   }

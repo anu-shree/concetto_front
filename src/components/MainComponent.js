@@ -35,8 +35,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Main extends Component {
-  constructor(props)
-  {
+  constructor(props) {
     super(props);
     this.state = {
       showLogo: false
@@ -51,27 +50,27 @@ class Main extends Component {
     ) {
       this.props.fetchUsers();
     }
+    window.addEventListener("scroll", this.handleScroll);
   }
 
-  componentDidMount = () => {
-    window.addEventListener('scroll', this.handleScroll);
-  };
-
   componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   };
 
-  handleScroll = (event) => {
-    let scrollTop = event.srcElement.body.scrollTop;
-    if (scrollTop > window.innerHeight) {
-      this.setState({
-        showLogo: true
-      });
-    }
-    else {
-      this.setState({
-        showLogo: false
-      });
+  handleScroll = event => {
+    let scrollTop = window.pageYOffset;
+    if (scrollTop > window.innerHeight / 4) {
+      if (!this.state.showLogo) {
+        this.setState({
+          showLogo: true
+        });
+      }
+    } else {
+      if (this.state.showLogo)
+        this.setState({
+          showLogo: false
+        });
+      console.log(scrollTop + " " + window.innerHeight);
     }
   };
 
@@ -130,7 +129,6 @@ class Main extends Component {
       />
     );
 
-
     return (
       <div className="App">
         <Header
@@ -141,7 +139,11 @@ class Main extends Component {
           registerUser={this.props.registerUser}
         />
         <Switch location={this.props.location}>
-          <Route exact path="/home" component={() => <Home showLogo={this.state.showLogo}/>} />
+          <Route
+            exact
+            path="/home"
+            component={() => <Home showLogo={this.state.showLogo} />}
+          />
           <Route
             exact
             path="/events"
