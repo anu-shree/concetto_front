@@ -1,18 +1,75 @@
-import React, { Component } from "react";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faYoutube
+} from "@fortawesome/free-brands-svg-icons";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 
-class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+const styles = theme => ({
+  socialMedia: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  a: {
+    height: "80px",
+    width: "80px",
+    backgroundColor: "#f5f6fa",
+    margin: '20px',
+    marginBottom: '10px',
+    borderRadius: "40px",
+    textAlign: "center",
+    boxShadow: "1px 4px 2px 2px #dcdde1",
+    fontSize: "50px",
+    lineHeight: "90px",
+    transition: "all 0.3s linear",
+    "&:hover": {
+      fontSize: "70px"
+    },
+    [theme.breakpoints.down('sm')]:{
+      margin: '10px',
+      marginBottom: '6px',
+    },
+  },
+  facebook: {
+    color: "#0018ff",
+  },
+  instagram: {
+    color: "#e84393",
+  },
+  youtube: {
+    color: "#e84118",
   }
-
+});
+class Footer extends React.Component {
   render() {
+    const { classes } = this.props;
     return (
-      <p className="footer" align="center">
-        Copyright 2019 IIT (ISM)
-      </p>
+      <div className={classes.socialMedia}>
+        <a
+          href="https://www.facebook.com/Concettoiitdhanbad/"
+          className={classes.a}
+        >
+          <FontAwesomeIcon icon={faFacebook} className={classes.facebook} />
+        </a>
+        <a
+          href="https://www.instagram.com/concetto.iitism/"
+          className={classes.a}
+        >
+          <FontAwesomeIcon icon={faInstagram} className={classes.instagram} />
+        </a>
+        <a href="https://www.google.com" className={classes.a}>
+          <FontAwesomeIcon icon={faYoutube} className={classes.youtube} />
+        </a>
+      </div>
     );
   }
 }
 
-export default Footer;
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+export default withStyles(styles)(Footer);
