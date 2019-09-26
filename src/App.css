@@ -209,47 +209,52 @@ body
   min-height: 100vh;
 }
 
-.scroll-down {
-    height: 300px;
-overflow: hidden;
-position: relative;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+.btnFlex{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
-.scroll-down.inner {
-  position: absolute;
-  width: 100 %;
-  height: 100 %;
-  margin: 0;
-  line-height: 50px;
-  text-align: center;
-  /* Starting position */
-  -moz-transform: translateY(-100 %);
-  -webkit-transform: translateY(-100 %);
-  transform: translateY(-100 %);
-  /* Apply animation to this element */
-  -moz-animation: scroll-down 15s linear infinite;
-  -webkit-animation: scroll-down 15s linear infinite;
-  animation: scroll-down 15s linear infinite;
+.btn {
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 10px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: fit-content;
 }
-/* Move it (define the animation) */
-@-moz-keyframes scroll-down {
-  0 % {-moz-transform: translateY(-100 %);
+@media (min-width: 600px) {
+  .btn {
+    margin: 0 3em 1.2em;
+  }
 }
-100 % {-moz-transform: translateY(100 %); }
+.btn:hover {
+  text-decoration: none;
+  color: #fff;
 }
-@-webkit-keyframes scroll-down {
-  0 % {-webkit-transform: translateY(-100 %);
+
+.btn-2 {
+  position: relative;
+  overflow:hidden;
+  transition: .3s;
 }
-100 % {-webkit-transform: translateY(100 %); }
+  .btn-2:after {
+    position: absolute;
+    transition: .3s;
+    content: '';
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    background: #f7f7f7;
+  }
+  .btn-2:hover {
+  cursor: pointer;
 }
-@keyframes scroll-down {
-  0 % {
--moz-transform: translateY(-100 %); /* Browser bug fix */
-  -webkit-transform: translateY(-100 %); /* Browser bug fix */
-  transform: translateY(-100 %);
-}
-100 % {
--moz-transform: translateY(100 %); /* Browser bug fix */
--webkit-transform: translateY(100 %); /* Browser bug fix */
-transform: translateY(100 %);
- }
+.btn-2:hover:after {
+  width: 88%;
+  left: 0;
 }
