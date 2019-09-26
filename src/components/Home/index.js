@@ -12,26 +12,38 @@ const styles = theme => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  parallax: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   moon: {
     display: "flex",
     zIndex: 200,
     height: "400px",
     bottom: 0,
-    position: "fixed"
+    position: "fixed",
   }
 });
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      offset: 45
+      offset: 45,
+      x: 0,
     };
   }
   componentDidMount() {
+    this.setState({ x: window.scrollY });
     window.addEventListener("scroll", this.handleScroll);
+    if(window.innerWidth> 600){
+      window.addEventListener('scroll',this.handleScroll1);
+    }
   }
   componentWillUnmount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll1);
   }
 
   handleScroll = event => {
@@ -50,9 +62,13 @@ class Home extends Component {
     }
   };
 
+  handleScroll1 = event => {
+    this.setState({x:window.scrollY});
+  }
+
   render() {
     const { showLogo, classes } = this.props;
-    const { offset } = this.state;
+    const { offset,x } = this.state;
     return (
       <div>
         <div className={classes.logo}>
@@ -71,7 +87,6 @@ class Home extends Component {
               width: "100vw"
             }}
           >
-            <Parallax image1="assets/download1.jpg" image2="assets/download2.jpg" image3="assets/download3.jpg" />
             <img
               src="./assets/moon_surface.png"
               className={classes.moon}
@@ -80,6 +95,10 @@ class Home extends Component {
             />
           </div>
         }
+            <div className={classes.parallax}>
+            <Parallax x={x} image1="assets/download1.jpg" image2="assets/download2.jpg" image3="assets/download3.jpg" />
+            <Parallax x={x} image1="assets/logo.png" image2="assets/moon_surface.png" image3="assets/index.jpeg" />
+            </div>
         <Footer />
       </div>
     );

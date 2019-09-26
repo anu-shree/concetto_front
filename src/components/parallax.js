@@ -4,6 +4,9 @@ import { withStyles } from "@material-ui/core/styles";
 import classNames from 'classnames';
 
 const styles = theme => ({
+  container: {
+    margin: '100px',
+  },
   images:{
     display: 'flex',
     justifyContent: 'center',
@@ -54,31 +57,35 @@ const styles = theme => ({
   },
 });
 class Parallax extends React.Component {
-  componentDidMount(){
-    if(window.innerWidth> 600){
-    window.addEventListener('scroll',this.handleScroll);
-    }
+  // handleScroll = () => {
+  //   var x=window.scrollY;
+  //   var $image1 = document.getElementByClassName('image1')[0];
+  //   $image1.style.transform = 'translateY(-' + x/8 + 'px)';
+
+  //   var $image2= document.getElementByClassName('image2')[0];
+  //   $image2.style.transform = 'translateY(' + x/16 + 'px)';
+
+  //   var $image3 = document.getElementByClassName('image3')[0];
+  //   $image3.style.transform = 'translateY(-' + x/4 + 'px)';
+  // }
+  constructor(props) {
+    super(props);
+    this.parent = React.createRef();
+    this.parentOffsetTop = 0;
   }
-  handleScroll = () => {
-    var x=window.scrollY;
-    var $image1 = document.getElementById('image1');
-    $image1.style.transform = 'translateY(-' + x/8 + 'px)';
-
-    var $image2= document.getElementById('image2');
-    $image2.style.transform = 'translateY(' + x/16 + 'px)';
-
-    var $image3 = document.getElementById('image3');
-    $image3.style.transform = 'translateY(-' + x/4 + 'px)';
+  componentDidMount() {
+    this.parentOffsetTop = this.parent.current.getBoundingClientRect().top;
+    // console.log(this.parentOffsetTop);
   }
   render() {
-    const { classes,image1,image2,image3 } = this.props;
+    const { classes,image1,image2,image3,x } = this.props;
     return (
-    <div className="container">
+    <div className={classNames(classes.container,"container")}>
      <div className="row">
-       <div className={(window.innerWidth>600)?classNames(classes.images,"col-6"):"col-12"}>
-         <img src={image1} alt="Loading..." className={(window.innerWidth>600)?classNames(classes.image1,"col-offset-2 col-8 col-md-2"):classNames(classes.image1M,"col-4")} id="image1"/>
-         <img src={image2} alt="Loading..." className={(window.innerWidth>600)?classNames(classes.image2,"col-offset-2 col-8 col-md-3"):classNames(classes.image2M,"col-4")} id="image2"/>
-         <img src={image3} alt="Loading..." className={(window.innerWidth>600)?classNames(classes.image3,"col-offset-2 col-8 col-md-2"):classNames(classes.image3M,"col-4")} id="image3"/>
+       <div ref={this.parent} className={(window.innerWidth>600)?classNames(classes.images,"col-6"):"col-12"}>
+         <img style={(window.innerWidth> 600)?{ transform: `translateY(${(this.parentOffsetTop-x)/8}px)`}: null } src={image1} alt="Loading..." className={(window.innerWidth>600)?classNames(classes.image1,"col-offset-2 col-8 col-md-2","image1"):classNames(classes.image1M,"col-4")} />
+         <img style={(window.innerWidth> 600)?{ transform: `translateY(${(this.parentOffsetTop+x)/16}px)` }: null} src={image2} alt="Loading..." className={(window.innerWidth>600)?classNames(classes.image2,"col-offset-2 col-8 col-md-3","image2"):classNames(classes.image2M,"col-4")} />
+         <img style={(window.innerWidth> 600)?{ transform: `translateY(${(this.parentOffsetTop-x)/4}px)` }: null} src={image3} alt="Loading..." className={(window.innerWidth>600)?classNames(classes.image3,"col-offset-2 col-8 col-md-2","image3"):classNames(classes.image3M,"col-4")} />
        </div>
        <div className={(window.innerWidth>600)?classNames(classes.text,"col-12 col-md-3"):classNames("col-12 col-md-3")} style={{textAlign:'center',}}>
         <h1>Some heading here</h1>
