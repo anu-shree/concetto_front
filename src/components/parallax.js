@@ -57,17 +57,6 @@ const styles = theme => ({
   },
 });
 class Parallax extends React.Component {
-  // handleScroll = () => {
-  //   var x=window.scrollY;
-  //   var $image1 = document.getElementByClassName('image1')[0];
-  //   $image1.style.transform = 'translateY(-' + x/8 + 'px)';
-
-  //   var $image2= document.getElementByClassName('image2')[0];
-  //   $image2.style.transform = 'translateY(' + x/16 + 'px)';
-
-  //   var $image3 = document.getElementByClassName('image3')[0];
-  //   $image3.style.transform = 'translateY(-' + x/4 + 'px)';
-  // }
   constructor(props) {
     super(props);
     this.parent = React.createRef();
