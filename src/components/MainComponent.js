@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
 import Home from "./Home";
 import EventDetail from "./EventDetail";
 
@@ -164,7 +163,6 @@ class Main extends Component {
           />
           <Redirect to="/home" />
         </Switch>
-        <Footer />
       </div>
     );
   }
