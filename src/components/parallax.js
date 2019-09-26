@@ -59,6 +59,9 @@ class Parallax extends React.Component {
     window.addEventListener('scroll',this.handleScroll);
     }
   }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.handleScroll);
+  }
   handleScroll = () => {
     var x=window.scrollY;
     var $image1 = document.getElementById('image1');
