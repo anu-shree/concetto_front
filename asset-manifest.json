@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/concetto_front/static/css/main.312e1e0a.chunk.css",
+    "main.js": "/concetto_front/static/js/main.2c3a4634.chunk.js",
+    "main.js.map": "/concetto_front/static/js/main.2c3a4634.chunk.js.map",
+    "runtime-main.js": "/concetto_front/static/js/runtime-main.d0636af7.js",
+    "runtime-main.js.map": "/concetto_front/static/js/runtime-main.d0636af7.js.map",
+    "static/css/2.8dad266e.chunk.css": "/concetto_front/static/css/2.8dad266e.chunk.css",
+    "static/js/2.07327c09.chunk.js": "/concetto_front/static/js/2.07327c09.chunk.js",
+    "static/js/2.07327c09.chunk.js.map": "/concetto_front/static/js/2.07327c09.chunk.js.map",
+    "index.html": "/concetto_front/index.html",
+    "precache-manifest.be46c5309107b787af7bb0f162a37f18.js": "/concetto_front/precache-manifest.be46c5309107b787af7bb0f162a37f18.js",
+    "service-worker.js": "/concetto_front/service-worker.js",
+    "static/css/2.8dad266e.chunk.css.map": "/concetto_front/static/css/2.8dad266e.chunk.css.map",
+    "static/css/main.312e1e0a.chunk.css.map": "/concetto_front/static/css/main.312e1e0a.chunk.css.map",
+    "static/media/font-awesome.css": "/concetto_front/static/media/fontawesome-webfont.fee66e71.woff"
+  }
+}
