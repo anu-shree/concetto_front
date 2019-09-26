@@ -43,7 +43,8 @@ color: white;
 .logo-home{
   width:  90vw;
   vertical-align: middle;
-  padding-bottom: 20px;
+  position: absolute;
+  padding-bottom: 100px;
 }
 
 @media only screen and (min-width: 768px) {
