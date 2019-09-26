@@ -18,8 +18,8 @@ const styles = theme => ({
     height: "40px",
     width: "40px",
     backgroundColor: "#f5f6fa",
-    margin: '20px',
-    marginBottom: '10px',
+    margin: "20px",
+    marginBottom: "10px",
     borderRadius: "20px",
     textAlign: "center",
     boxShadow: "1px 1px 1px 1px #dcdde1",
@@ -29,19 +29,19 @@ const styles = theme => ({
     "&:hover": {
       fontSize: "36px"
     },
-    [theme.breakpoints.down('sm')]:{
-      margin: '10px',
-      marginBottom: '6px',
-    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "10px",
+      marginBottom: "6px"
+    }
   },
   facebook: {
-    color: "#0018ff",
+    color: "#0018ff"
   },
   instagram: {
-    color: "#e84393",
+    color: "#e84393"
   },
   youtube: {
-    color: "#e84118",
+    color: "#e84118"
   }
 });
 class Footer extends React.Component {
