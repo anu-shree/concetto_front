@@ -35,8 +35,9 @@ class Home extends Component {
 
   handleScroll = event => {
     let scrollTop = window.pageYOffset;
+    const { offset } = this.state;
     if (scrollTop > window.innerHeight / 10) {
-      if (this.state.offset !== 55) {
+      if (offset !== 55) {
         this.setState({
           offset: 55
         });
