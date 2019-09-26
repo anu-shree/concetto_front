@@ -46,7 +46,7 @@ const styles = theme => ({
   }
 });
 
-class EventPage extends React.Component {
+class EventDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -176,4 +176,4 @@ class EventPage extends React.Component {
 EventPage.propTypes = {
   classes: PropTypes.object.isRequired
 };
-export default makeStyles(styles)(EventPage);
+export default makeStyles(styles)(EventDetail);
