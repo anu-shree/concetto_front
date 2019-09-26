@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
-import Events from "./Events";
+import EventDetail from "./EventDetail";
 
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -148,7 +148,7 @@ class Main extends Component {
             exact
             path="/events"
             component={() => (
-              <Events events={this.props.events} auth={this.props.auth} />
+              <EventDetail events={this.props.events} auth={this.props.auth} />
             )}
           />
           <Redirect to="/home" />
