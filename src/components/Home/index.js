@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Loading from "../Loading";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
+import Footer from "../Footer";
 
 const styles = theme => ({
   logo: {
@@ -44,7 +45,7 @@ class Home extends Component {
       this.setState({
         offset: 45 + (scrollTop / window.innerHeight) * 100
       });
-      console.log(scrollTop + " " + window.innerHeight);
+      //   console.log(scrollTop + " " + window.innerHeight);
     }
   };
 
@@ -57,19 +58,9 @@ class Home extends Component {
           {showLogo ? (
             ""
           ) : (
-            <img src="assets/logo.png" className="logo-home" alt={Loading} />
+            <img src="./assets/logo.png" className="logo-home" alt={Loading} />
           )}
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         {
           <div
             style={{
@@ -80,13 +71,14 @@ class Home extends Component {
             }}
           >
             <img
-              src="assets/moon_surface.png"
+              src="./assets/moon_surface.png"
               className={classes.moon}
               alt="moon"
               style={{ transform: "translateY(" + offset + "vh)" }}
             />
           </div>
         }
+        <Footer />
       </div>
     );
   }

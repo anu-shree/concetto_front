@@ -41,9 +41,16 @@ color: white;
 }
 
 .logo-home{
+  width:  90vw;
+  vertical-align: middle;
+}
+
+@media only screen and (min-width: 768px) {
+.logo-home{
   height: 321px;
   width:  642px;
   vertical-align: middle;
+}
 }
 
 .logo-header{
@@ -170,15 +177,15 @@ body
  */
 #menu
 {
-  position: absolute;
-  min-width: 115vw;
-  min-height: 115vh;
-  margin: -100px 0 0 0;
-  padding-top: 125px;
-  right: -100px;
-
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 0;
+  right: 0;
+  top:0;
   background: black;
-  opacity: 0.4;
+  opacity: 0.6;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */

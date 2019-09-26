@@ -23,7 +23,7 @@ class Header extends Component {
             <span class="helper"></span>
             {showLogo ? (
               <img
-                src="assets/logo.png"
+                src="./assets/logo.png"
                 className="logo-header"
                 alt={Loading}
               />
@@ -37,6 +37,9 @@ class Header extends Component {
             <span></span>
             <span></span>
             <ul id="menu">
+              <br />
+              <br />
+              <br />
               <li>
                 <NavLink className="nav-link" to="/home">
                   HOME
