@@ -35,10 +35,10 @@ const styles = theme => ({
     }
   },
   facebook: {
-    color: "#0018ff"
+    color: "#0018ff",
   },
   instagram: {
-    color: "#e84393"
+    color: "#e84393",
   },
   youtube: {
     color: "#e84118"
