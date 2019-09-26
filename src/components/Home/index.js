@@ -3,13 +3,14 @@ import Loading from "../Loading";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "../Footer";
+import Parallax from "../parallax";
 
 const styles = theme => ({
   logo: {
     height: "100vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   moon: {
     display: "flex",
@@ -70,6 +71,7 @@ class Home extends Component {
               width: "100vw"
             }}
           >
+            <Parallax image1="assets/download1.jpg" image2="assets/download2.jpg" image3="assets/download3.jpg" />
             <img
               src="./assets/moon_surface.png"
               className={classes.moon}
