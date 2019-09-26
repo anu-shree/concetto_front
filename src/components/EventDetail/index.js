@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
@@ -173,7 +173,7 @@ class EventDetail extends React.Component {
     );
   }
 }
-EventPage.propTypes = {
+EventDetail.propTypes = {
   classes: PropTypes.object.isRequired
 };
-export default makeStyles(styles)(EventDetail);
+export default withStyles(styles)(EventDetail);
