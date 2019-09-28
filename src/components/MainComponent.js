@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
 import Home from "./Home";
 import EventDetail from "./EventDetail";
 
@@ -38,11 +37,12 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showLogo: false,
+      header: false,
       preloader: true,
       delayed: false
     };
   }
+
   componentDidMount() {
     this.props.fetchEvents();
     if (
@@ -61,23 +61,6 @@ class Main extends Component {
 
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.handleScroll);
-  };
-
-  handleScroll = event => {
-    let scrollTop = window.pageYOffset;
-    if (scrollTop > window.innerHeight / 4) {
-      if (!this.state.showLogo) {
-        this.setState({
-          showLogo: true
-        });
-      }
-    } else {
-      if (this.state.showLogo)
-        this.setState({
-          showLogo: false
-        });
-      console.log(scrollTop + " " + window.innerHeight);
-    }
   };
 
   render() {
@@ -143,7 +126,7 @@ class Main extends Component {
     return (
       <div className="App">
         <Header
-          showLogo={this.state.showLogo}
+          showLogo={this.state.header}
           auth={this.props.auth}
           loginUser={this.props.loginUser}
           logoutUser={this.props.logoutUser}
@@ -153,7 +136,7 @@ class Main extends Component {
           <Route
             exact
             path="/home"
-            component={() => <Home showLogo={this.state.showLogo} />}
+            component={() => <Home showLogo={!this.state.header} />}
           />
           <Route
             exact
@@ -164,7 +147,6 @@ class Main extends Component {
           />
           <Redirect to="/home" />
         </Switch>
-        <Footer />
       </div>
     );
   }

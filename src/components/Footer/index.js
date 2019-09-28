@@ -12,7 +12,8 @@ const styles = theme => ({
   socialMedia: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    zIndex: 202
   },
   a: {
     height: "40px",
@@ -25,6 +26,8 @@ const styles = theme => ({
     boxShadow: "1px 1px 1px 1px #dcdde1",
     fontSize: "30px",
     lineHeight: "45px",
+    zIndex: 204,
+    // display: "block",
     transition: "all 0.3s linear",
     "&:hover": {
       fontSize: "36px"
