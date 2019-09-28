@@ -63,23 +63,6 @@ class Main extends Component {
     window.removeEventListener("scroll", this.handleScroll);
   };
 
-  handleScroll = event => {
-    let scrollTop = window.pageYOffset;
-    if (scrollTop > window.innerHeight / 8) {
-      if (!this.state.header) {
-        this.setState({
-          header: true
-        });
-      }
-    } else {
-      if (this.state.header)
-        this.setState({
-          header: false
-        });
-      console.log(scrollTop + " " + window.innerHeight);
-    }
-  };
-
   render() {
     const { preloader } = this.props;
     const { delayed } = this.state;

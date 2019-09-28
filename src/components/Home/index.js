@@ -35,15 +35,15 @@ class Home extends Component {
     this.homeRef = React.createRef();
   }
   componentDidMount() {
-    window.scrollTo(0, 0);
     window.addEventListener("scroll", this.handleScroll);
   }
   componentWillUnmount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   handleScroll = event => {
     let scrollTop = window.pageYOffset;
+    console.log(scrollTop + "\n");
     const { offset, header } = this.state;
     if (scrollTop > window.innerHeight / 10) {
       if (!header) {
@@ -66,8 +66,8 @@ class Home extends Component {
           header: false
         });
         if (this.homeRef.current) {
-          this.homeRef.current.classList.toggle("logo-home");
           this.homeRef.current.classList.toggle("logo-header");
+          this.homeRef.current.classList.toggle("logo-home");
         }
       }
       this.setState({

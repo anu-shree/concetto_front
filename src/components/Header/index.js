@@ -15,7 +15,7 @@ class Header extends Component {
     this.setState({ isMenuOpen: !isMenuOpen });
   }
   render() {
-    const { showLogo, toggleLogo } = this.props;
+    const { showLogo } = this.props;
     return (
       <div className="header fixed-top">
         <nav className="navbar navbar-expand-md navbar-dark">
@@ -31,12 +31,7 @@ class Header extends Component {
               : ""}
           </a>
           <div id="menuToggle">
-            <input
-              type="checkbox"
-              onClick={() => {
-                toggleLogo();
-              }}
-            />
+            <input type="checkbox" />
             <span></span>
             <span></span>
             <span></span>
