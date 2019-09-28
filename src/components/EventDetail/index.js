@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Loading from "../Loading";
 
 class EventDetail extends Component {
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
   render() {
     const events =
       {
