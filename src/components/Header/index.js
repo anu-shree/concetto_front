@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Loading from "../Loading";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
@@ -20,16 +19,15 @@ class Header extends Component {
       <div className="header fixed-top">
         <nav className="navbar navbar-expand-md navbar-dark">
           <a className="navbar-brand" href="home">
-            <span class="helper"></span>
-            {showLogo ? (
-              <img
-                src="./assets/logo.png"
-                className="logo-header"
-                alt={Loading}
-              />
-            ) : (
-              ""
-            )}
+            <span className="helper"></span>
+            {showLogo
+              ? // <img
+                //   src="./assets/logo.png"
+                //   className="logo-header"
+                //   alt={Loading}
+                // />
+                ""
+              : ""}
           </a>
           <div id="menuToggle">
             <input type="checkbox" />
