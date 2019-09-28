@@ -37,11 +37,12 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showLogo: false,
+      header: false,
       preloader: true,
       delayed: false
     };
   }
+
   componentDidMount() {
     this.props.fetchEvents();
     if (
@@ -64,16 +65,16 @@ class Main extends Component {
 
   handleScroll = event => {
     let scrollTop = window.pageYOffset;
-    if (scrollTop > window.innerHeight / 4) {
-      if (!this.state.showLogo) {
+    if (scrollTop > window.innerHeight / 8) {
+      if (!this.state.header) {
         this.setState({
-          showLogo: true
+          header: true
         });
       }
     } else {
-      if (this.state.showLogo)
+      if (this.state.header)
         this.setState({
-          showLogo: false
+          header: false
         });
       console.log(scrollTop + " " + window.innerHeight);
     }
@@ -142,7 +143,7 @@ class Main extends Component {
     return (
       <div className="App">
         <Header
-          showLogo={this.state.showLogo}
+          showLogo={this.state.header}
           auth={this.props.auth}
           loginUser={this.props.loginUser}
           logoutUser={this.props.logoutUser}
@@ -152,7 +153,7 @@ class Main extends Component {
           <Route
             exact
             path="/home"
-            component={() => <Home showLogo={this.state.showLogo} />}
+            component={() => <Home showLogo={!this.state.header} />}
           />
           <Route
             exact

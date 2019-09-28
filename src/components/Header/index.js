@@ -15,24 +15,28 @@ class Header extends Component {
     this.setState({ isMenuOpen: !isMenuOpen });
   }
   render() {
-    const { showLogo } = this.props;
+    const { showLogo, toggleLogo } = this.props;
     return (
       <div className="header fixed-top">
         <nav className="navbar navbar-expand-md navbar-dark">
           <a className="navbar-brand" href="home">
-            <span class="helper"></span>
-            {showLogo ? (
-              <img
-                src="./assets/logo.png"
-                className="logo-header"
-                alt={Loading}
-              />
-            ) : (
-              ""
-            )}
+            <span className="helper"></span>
+            {showLogo
+              ? // <img
+                //   src="./assets/logo.png"
+                //   className="logo-header"
+                //   alt={Loading}
+                // />
+                ""
+              : ""}
           </a>
           <div id="menuToggle">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onClick={() => {
+                toggleLogo();
+              }}
+            />
             <span></span>
             <span></span>
             <span></span>

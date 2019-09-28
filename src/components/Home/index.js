@@ -10,7 +10,12 @@ const styles = theme => ({
     height: "100vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
+  },
+  logoImg: {
+    transition: "all 3s ease",
+    position: "fixed",
+    transform: "translate(-50 %, -50 %)"
   },
   moon: {
     display: "flex",
@@ -24,10 +29,13 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      offset: 45
+      offset: 45,
+      header: false
     };
+    this.homeRef = React.createRef();
   }
   componentDidMount() {
+    window.scrollTo(0, 0);
     window.addEventListener("scroll", this.handleScroll);
   }
   componentWillUnmount() {
@@ -36,32 +44,50 @@ class Home extends Component {
 
   handleScroll = event => {
     let scrollTop = window.pageYOffset;
-    const { offset } = this.state;
+    const { offset, header } = this.state;
     if (scrollTop > window.innerHeight / 10) {
+      if (!header) {
+        this.setState({
+          header: true
+        });
+        if (this.homeRef.current) {
+          this.homeRef.current.classList.toggle("logo-home");
+          this.homeRef.current.classList.toggle("logo-header");
+        }
+      }
       if (offset !== 55) {
         this.setState({
           offset: 55
         });
       }
     } else {
+      if (header) {
+        this.setState({
+          header: false
+        });
+        if (this.homeRef.current) {
+          this.homeRef.current.classList.toggle("logo-home");
+          this.homeRef.current.classList.toggle("logo-header");
+        }
+      }
       this.setState({
         offset: 45 + (scrollTop / window.innerHeight) * 100
       });
-      //   console.log(scrollTop + " " + window.innerHeight);
     }
   };
 
   render() {
-    const { showLogo, classes } = this.props;
+    const { classes } = this.props;
     const { offset } = this.state;
     return (
       <div>
         <div className={classes.logo}>
-          {showLogo ? (
-            ""
-          ) : (
-            <img src="./assets/logo.png" className="logo-home" alt={Loading} />
-          )}
+          <img
+            src="./assets/logo.png"
+            className={`logo logo-home`}
+            ref={this.homeRef}
+            alt={Loading}
+          />
         </div>
         {
           <div
@@ -72,7 +98,11 @@ class Home extends Component {
               width: "100vw"
             }}
           >
-            <Parallax image1="assets/download1.jpg" image2="assets/download2.jpg" image3="assets/download3.jpg" />
+            <Parallax
+              image1="assets/download1.jpg"
+              image2="assets/download2.jpg"
+              image3="assets/download3.jpg"
+            />
             <img
               src="./assets/moon_surface.png"
               className={classes.moon}
