@@ -98,6 +98,7 @@ body
 {
   margin: 0;
   padding: 0;
+  padding-bottom: 33vh;
   width: 100vw;
   overflow-x: hidden;
   /* make it look decent enough */

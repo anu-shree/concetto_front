@@ -43,6 +43,7 @@ class Home extends Component {
     this.homeRef = React.createRef();
   }
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.setState({ x: window.scrollY });
     window.addEventListener("scroll", this.handleScroll);
     if (window.innerWidth > 600) {
