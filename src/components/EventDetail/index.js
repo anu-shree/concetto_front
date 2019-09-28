@@ -1,7 +1,42 @@
 import React, { Component } from "react";
 import Loading from "../Loading";
+import About from "./About";
+import Rules from "./Rules";
+import Details from "./Details";
+import Register from "./Register";
 
 class EventDetail extends Component {
+  constructor(props){
+    super(props);
+      this.aboutShow=this.aboutShow.bind(this);
+      this.rulesShow = this.rulesShow.bind(this);
+      this.detailsShow = this.detailsShow.bind(this);
+      this.registerShow = this.registerShow.bind(this);
+  }
+state={
+  active:'about',
+};
+
+  aboutShow = (active) => {
+  this.setState({
+    active: 'about',
+  })
+}
+  rulesShow = (active) => {
+      this.setState({
+        active: 'rules',
+      })
+}
+  detailsShow = (active) => {
+      this.setState({
+        active: 'details',
+      })
+}
+  registerShow = (active) => {
+      this.setState({
+        active: 'register',
+      })
+}
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -42,10 +77,10 @@ class EventDetail extends Component {
             <img src="assets/logo.png" className="img-fluid" alt={Loading} />
           </div>
           <div className="btnFlex">
-            <button className="btn btn-2">HOME</button>
-            <button className="btn btn-2">RULES</button>
-            <button className="btn btn-2">DETAILS</button>
-            <button className="btn btn-2">ABOUT</button>
+            <button className={"btn btn-2 "+((this.state.active==='about')?'active-bottom':'')} onClick={this.aboutShow}>ABOUT</button>
+            <button className={"btn btn-2 "+((this.state.active==='rules')?'active-bottom':'')} onClick={this.rulesShow}>RULES</button>
+            <button className={"btn btn-2 "+((this.state.active==='details')?'active-bottom':'')} onClick={this.detailsShow}>DETAILS</button>
+            <button className={"btn btn-2 "+((this.state.active==='register')?'active-bottom':'')} onClick={this.registerShow}>REGISTER</button>
           </div>
         </div>
         <div>
@@ -90,7 +125,13 @@ class EventDetail extends Component {
               <label for="img-2" className="nav-dot" id="img-dot-2"></label>
             </li>
           </ul>
-          <div>{event.name}</div>
+          <div>
+            {event.name}
+          </div>
+          {this.state.active === 'about' && <About />}
+          {this.state.active === 'rules' && <Rules />}
+          {this.state.active === 'details' && <Details />}
+          {this.state.active==='register' && <Register/>}
         </div>
       </div>
     );
