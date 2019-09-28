@@ -17,6 +17,13 @@ const styles = theme => ({
     position: "fixed",
     transform: "translate(-50 %, -50 %)"
   },
+  parallax: {
+    marginTop: "20px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
   moon: {
     display: "flex",
     zIndex: 200,
@@ -30,15 +37,21 @@ class Home extends Component {
     super(props);
     this.state = {
       offset: 45,
-      header: false
+      header: false,
+      x: 0
     };
     this.homeRef = React.createRef();
   }
   componentDidMount() {
+    this.setState({ x: window.scrollY });
     window.addEventListener("scroll", this.handleScroll);
+    if (window.innerWidth > 600) {
+      window.addEventListener("scroll", this.handleScroll1);
+    }
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll1);
   }
 
   handleScroll = event => {
@@ -76,9 +89,13 @@ class Home extends Component {
     }
   };
 
+  handleScroll1 = event => {
+    this.setState({ x: window.scrollY });
+  };
+
   render() {
     const { classes } = this.props;
-    const { offset } = this.state;
+    const { offset, x } = this.state;
     return (
       <div>
         <div className={classes.logo}>
@@ -98,11 +115,6 @@ class Home extends Component {
               width: "100vw"
             }}
           >
-            <Parallax
-              image1="assets/download1.jpg"
-              image2="assets/download2.jpg"
-              image3="assets/download3.jpg"
-            />
             <img
               src="./assets/moon_surface.png"
               className={classes.moon}
@@ -111,6 +123,26 @@ class Home extends Component {
             />
           </div>
         }
+        <div className={classes.parallax}>
+          <Parallax
+            x={x}
+            image1="assets/download1.jpg"
+            image2="assets/download2.jpg"
+            image3="assets/download3.jpg"
+          />
+          <Parallax
+            x={x}
+            image1="assets/logo.png"
+            image2="assets/moon_surface.png"
+            image3="assets/index.jpeg"
+          />
+          <Parallax
+            x={x}
+            image1="assets/download1.jpg"
+            image2="assets/download2.jpg"
+            image3="assets/download3.jpg"
+          />
+        </div>
         <Footer />
       </div>
     );
