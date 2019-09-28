@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { Component } from "react";
 import Loading from "../Loading";
 import About from "./About";
@@ -141,4 +139,3 @@ state={
 }
 
 export default EventDetail;
->>>>>>> 74ad6b9152aae6caf3f9c6b4c8b02ebdac4116cf
