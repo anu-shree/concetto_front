@@ -27,7 +27,7 @@ const styles = theme => ({
   moon: {
     display: "flex",
     zIndex: 200,
-    height: "400px",
+    // height: "1800px",
     bottom: 0,
     position: "fixed"
   }
@@ -36,7 +36,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      offset: 45,
+      offset: 52,
       header: false,
       x: 0
     };
@@ -68,9 +68,9 @@ class Home extends Component {
           this.homeRef.current.classList.toggle("logo-header");
         }
       }
-      if (offset !== 55) {
+      if (offset !== 65) {
         this.setState({
-          offset: 55
+          offset: 65
         });
       }
     } else {
@@ -84,7 +84,7 @@ class Home extends Component {
         }
       }
       this.setState({
-        offset: 45 + (scrollTop / window.innerHeight) * 100
+        offset: 52 + (scrollTop / window.innerHeight) * 100
       });
     }
   };
