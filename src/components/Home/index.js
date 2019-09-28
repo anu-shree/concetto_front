@@ -13,6 +13,7 @@ const styles = theme => ({
     alignItems: "center",
   },
   parallax: {
+    marginTop: '20px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -99,6 +100,7 @@ class Home extends Component {
             <div className={classes.parallax}>
             <Parallax x={x} image1="assets/download1.jpg" image2="assets/download2.jpg" image3="assets/download3.jpg" />
             <Parallax x={x} image1="assets/logo.png" image2="assets/moon_surface.png" image3="assets/index.jpeg" />
+            <Parallax x={x} image1="assets/download1.jpg" image2="assets/download2.jpg" image3="assets/download3.jpg" />
             </div>
         <Footer />
       </div>
